@@ -48,7 +48,8 @@ def get_filters():
             month = cmp
             check = 1
         elif cmp == "day":
-            cmp = input('Please type in the day of the week you want to filter by (type the word \'all\' to choose all days):\n').lower()
+            cmp = input(
+                'Please type in the day of the week you want to filter by (type the word \'all\' to choose all days):\n').lower()
             while cmp not in days:
                 trials += 1
                 if trials == 3:  # Every 3 times display a hint
@@ -67,36 +68,8 @@ def get_filters():
                 print("HINT: CHECK YOUR SPELLING!")
                 trials = 0
             print("Please enter a correct filter!\n")
-            cmp = input('How do you like to filter your data?\nChoose between month or day (type all for no filter): ').lower()
-
-    # if cmp == "month":
-    #     print("Please type in a month that is in the list below\n(type the word \'all\' to choose no filter)\n")
-    #     month = input("[JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE]\n").lower()
-    #     trials = 0
-    #     while month not in months:
-    #         print("Please use only one of the following months!\n(type the word \'all\' to choose no filter):\n")
-    #         trials += 1
-    #         if trials >= 3:
-    #             print("HINT: CHECK YOUR SPELLING!")
-    #         month = input("[JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE]\n").lower()
-    #     days = "all"
-    # elif cmp == "day":
-    #     # get user input for day of week (all, monday, tuesday, ... sunday)
-    #     day = input('Please type in the day of the week you want to filter by (type the word \'all\' to choose no filter):\n').lower()
-    #     trials = 0
-    #     while day not in days:
-    #         print("Please enter a correct input!\n")
-    #         trials += 1
-    #         if trials >= 3:
-    #             print("HINT: CHECK YOUR SPELLING!")
-    #         day = input(
-    #             'Please type in the day of the week you want to filter by (type the word \'all\' to choose no filter):\n').lower()
-    #     month = "all"
-    # elif cmp == "none":
-    #     month = "all"
-    #     day = "all"
-    # else:
-
+            cmp = input(
+                'How do you like to filter your data?\nChoose between month or day (type all for no filter): ').lower()
     print('-' * 40)
     return city, month, day
 
@@ -135,7 +108,8 @@ def time_stats(df):
 
     # display the most common month
     df['month'] = df['Start Time'].dt.month  # create a month column
-    common_month = df['month'].mode()[0]  # [0] cuz mode returns a series that has index. we don't want the index displayed
+    common_month = df['month'].mode()[
+        0]  # [0] cuz mode returns a series that has index. we don't want the index displayed
     print('Most common Month:', common_month)
 
     # display the most common day of week
@@ -227,7 +201,7 @@ def main():
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df)
-        raw = input("Would you like to see some raw data?(Yes/No)\n").lower() # by raw I mean raw data
+        raw = input("Would you like to see some raw data?(Yes/No)\n").lower()  # by raw I mean raw data
         raw_counter = 0
         raw_check = 1
         while raw_check == 1:
@@ -250,7 +224,6 @@ def main():
         else:
             print("Please enter a correct input!")
             restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
-
 
 
 if __name__ == "__main__":
