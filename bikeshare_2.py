@@ -205,21 +205,21 @@ def main():
         raw_counter = 0
         raw_check = 1
         while raw_check == 1:
-            if raw == "yes" or raw == "y":
+            if raw in ("yes", "y"):
                 raw_df = df[raw_counter: (raw_counter + 5)]
                 raw_counter += 5
                 print(raw_df)
                 raw = input("Would you like to see some raw data again?(Yes/No)\n").lower()
-            elif raw == "no" or raw == "n":
+            elif raw in ("no", "n"):
                 raw_check = 0
             else:
                 print("Please enter a correct input!")
                 raw = input("Would you like to see some raw data?(Yes/No)\n").lower()
 
         restart = input('\nWould you like to restart? Enter yes or no.\n').lower()
-        if restart == 'yes' or restart == 'y':
+        if restart in ("yes", "y"):
             main()
-        elif restart == 'no' or restart == 'n':
+        elif restart in ("no", "n"):
             break
         else:
             print("Please enter a correct input!")
